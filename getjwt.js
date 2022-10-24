@@ -11,7 +11,6 @@ import bs58 from "bs58";
   const wallet = solana.Keypair.fromSecretKey(new Uint8Array(key));
   const msg = new TextEncoder().encode(`Sign in to GenesysGo Shadow Platform.`);
   const message = bs58.encode(nacl.sign.detached(msg, wallet.secretKey));
-  //console.log("Sending auth request", process.env.API_URL_BASE);
   let body = {
     message,
     signer: wallet.publicKey.toString(),
@@ -20,17 +19,14 @@ import bs58 from "bs58";
     `${process.env.API_URL_BASE}/signin`,
     body
   );
-  //console.log("Validating auth request");
   if (authResponse.status !== 200) {
     console.error("Error occurred:", authResponse.status);
     return;
   }
-
   if (typeof authResponse.data?.token !== "string") {
     console.error("No valid auth token returned.");
     return;
   }
-
   const tokenResponse = await axios.post(
     `${process.env.API_URL_BASE}/premium/token/${process.env.RPC_ID}`,
     {},

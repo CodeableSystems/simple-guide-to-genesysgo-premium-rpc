@@ -1,4 +1,4 @@
-# How to connect to GenesysGo Premium RPC
+# How to connect to GenesysGo Premium RPC (a minimal example)
 
 How to connect to Solana's first and only highly performant decentralized RPC network powered by independent Shadow Operators in a trustless environment.
 

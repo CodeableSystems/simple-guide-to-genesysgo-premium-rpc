@@ -1,6 +1,6 @@
 {
   "type": "module",
-  "name": "rpc",
+  "name": "simple-guide-to-genesysgo-premium-rpc",
   "version": "1.0.0",
   "main": "index.js",
   "license": "MIT",
